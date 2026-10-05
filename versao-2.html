@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar Sete | Energia Solar - Versão Editorial Pinterest V2</title>
+  <meta name="description" content="Nós fazemos o sol trabalhar para você. Projetos fotovoltaicos completos com engenharia própria e homologação Cemig em Sete Lagoas e região.">
+  
+  <link rel="icon" type="image/png" href="assets/images/sun_icon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            solar: {
+              yellow: '#facc15',
+              amber: '#f59e0b',
+              amberLight: '#fbbf24',
+              orange: '#ea580c',
+              green: '#10b981',
+              dark: '#070a10',
+              darkSurface: '#0f141f',
+              darkCard: 'rgba(15, 23, 42, 0.75)'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Estilos Específicos para a Versão 2 (Pinterest V2) */
+    .glass-card {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .glass-card-hover:hover {
+      background: rgba(15, 23, 42, 0.82);
+      border-color: rgba(250, 204, 21, 0.4);
+      transform: translateY(-4px);
+    }
+    .text-shadow-hero {
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.85);
+    }
+  </style>
+</head>
+<body class="bg-[#070a10] text-slate-100 antialiased selection:bg-yellow-400 selection:text-slate-950 font-sans">
+
+  <!-- =========================================================================
+       BARRA DE ALTERNÂNCIA DE VERSÕES (TESTE A/B)
+       ========================================================================= -->
+  <div class="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 text-slate-950 text-xs font-bold py-1.5 px-4 text-center flex items-center justify-center gap-3">
+    <span>💡 Você está visualizando a <strong>Versão 2 (Estilo Pinterest / Editorial)</strong></span>
+    <a href="index.html" class="underline hover:text-white transition flex items-center gap-1">
+      <span>Voltar para a Versão 1</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+    </a>
+  </div>
+
+  <!-- =========================================================================
+       1. HEADER / NAVBAR FIXA (ESTILO MINIMALISTA MERSOL)
+       ========================================================================= -->
+  <header id="mainHeader" class="fixed top-7 left-0 right-0 z-50 transition-all duration-300 bg-[#070a10]/70 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Solar Sete (com ponto solar amarelo estilo Mersol) -->
+      <a href="#inicio" class="flex items-center gap-3 group">
+        <span class="w-3.5 h-3.5 rounded-full bg-yellow-400 shadow-[0_0_12px_#facc15] group-hover:scale-125 transition-transform duration-300"></span>
+        <div class="flex flex-col">
+          <span class="font-heading font-black text-xl tracking-tight text-white">
+            Solar Sete
+          </span>
+          <span class="text-[9px] font-bold tracking-widest text-yellow-400 uppercase">
+            Energia &amp; Elétrica
+          </span>
+        </div>
+      </a>
+
+      <!-- Menu Minimalista -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#inicio" class="text-white hover:text-yellow-400 transition">Início</a>
+        <a href="#solucoes" class="text-slate-300 hover:text-white transition">Soluções</a>
+        <a href="#processo" class="text-slate-300 hover:text-white transition">Processo</a>
+        <a href="#obras" class="text-slate-300 hover:text-white transition">Projetos</a>
+        <a href="#faq" class="text-slate-300 hover:text-white transition">Dúvidas</a>
+        <a href="#simulacao" class="text-slate-300 hover:text-white transition">Simulação</a>
+      </nav>
+
+      <!-- Botão Pill Amarelo (Estilo Free quote da Referência 1) -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="https://wa.me/5531996728374?text=Ol%C3%A1%2C%20Solar%20Sete!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." 
+           target="_blank" 
+           class="bg-yellow-400 hover:bg-yellow-300 text-slate-950 text-xs sm:text-sm font-extrabold px-6 py-2.5 rounded-full flex items-center gap-2 shadow-[0_0_20px_rgba(250,204,21,0.4)] transition-all duration-200 hover:scale-105">
+          <span class="w-2 h-2 rounded-full bg-slate-950"></span>
+          <span>Orçamento Grátis</span>
+        </a>
+      </div>
+
+      <!-- Mobile Button -->
+      <button id="mobileMenuBtn" aria-label="Abrir Menu" class="md:hidden text-white p-2">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Dropdown Mobile -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#0c101a] border-b border-white/10 px-6 py-6 space-y-4">
+      <a href="#inicio" class="block text-yellow-400 font-medium py-1">Início</a>
+      <a href="#solucoes" class="block text-slate-300 hover:text-white font-medium py-1">Soluções</a>
+      <a href="#processo" class="block text-slate-300 hover:text-white font-medium py-1">Processo</a>
+      <a href="#obras" class="block text-slate-300 hover:text-white font-medium py-1">Projetos</a>
+      <a href="#faq" class="block text-slate-300 hover:text-white font-medium py-1">Dúvidas</a>
+      <a href="#simulacao" class="block text-slate-300 hover:text-white font-medium py-1">Simulação</a>
+      <a href="https://wa.me/5531996728374" target="_blank" class="block bg-yellow-400 text-slate-950 text-center font-extrabold py-3 rounded-full mt-4">
+        Orçamento Grátis no WhatsApp
+      </a>
+    </div>
+  </header>
+
+
+  <!-- =========================================================================
+       2. HERO SECTION FULL BLEED (REFERÊNCIA 1 DO PINTEREST - CHALET AO ANOITECER)
+       ========================================================================= -->
+  <section id="inicio" class="relative min-h-screen flex flex-col justify-between pt-36 pb-12 overflow-hidden">
+    
+    <!-- Imagem de Fundo Fullscreen 4K da Casa com Placas Solares -->
+    <div class="absolute inset-0 z-0">
+      <img src="assets/images/v2_hero_chalet.jpg" 
+           alt="Casa moderna com energia solar fotovoltaica ao anoitecer" 
+           class="w-full h-full object-cover object-right md:object-center">
+      
+      <!-- Gradientes Cinematográficos para Máxima Legibilidade no Lado Esquerdo -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#070a10]/95 via-[#070a10]/75 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#070a10] via-transparent to-[#070a10]/40"></div>
+    </div>
+
+    <!-- Conteúdo Principal do Hero (Lado Esquerdo Igual à Imagem 1) -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-12">
+      <div class="max-w-2xl space-y-6">
+        
+        <!-- Tag de Localização e Tecnologia -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-yellow-400 text-xs font-semibold tracking-wider uppercase">
+          <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+          <span>Sete Lagoas &amp; Região • Até 150km</span>
+        </div>
+
+        <!-- Headline Poderosa estilo Mersol: "Nós fazemos o sol trabalhar para você" -->
+        <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight text-shadow-hero">
+          Nós fazemos o sol trabalhar <span class="text-yellow-400">para você.</span>
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="text-slate-200 text-base sm:text-xl leading-relaxed font-normal text-shadow-hero max-w-xl">
+          Especialistas em energia fotovoltaica com engenharia própria, homologação completa Cemig e redução de até 95% na conta de luz da sua residência, empresa ou agronegócio.
+        </p>
+
+        <!-- Botões de Ação estilo Referência 1 -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+          <!-- Botão Amarelo Primário -->
+          <a href="#simulacao" 
+             class="bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-extrabold px-8 py-4 rounded-full text-center text-base shadow-[0_10px_30px_rgba(250,204,21,0.35)] transition-all duration-200 hover:scale-105 flex items-center justify-center gap-2">
+            <span>Simular Economia Grátis</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+
+          <!-- Botão Translucido Explore -->
+          <a href="https://wa.me/5531996728374?text=Ol%C3%A1%2C%20Solar%20Sete!%20Gostaria%20de%20falar%20no%20WhatsApp." 
+             target="_blank" 
+             class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-semibold px-8 py-4 rounded-full text-center text-base transition-all duration-200 hover:border-white/50 flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
+            <span>Falar no WhatsApp</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Ticker / Barra Inferior da Referência 1 (Depoimentos + Selos Oficiais) -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8">
+      <div class="glass-card rounded-2xl p-5 sm:p-6 flex flex-col lg:flex-row items-center justify-between gap-6 border border-white/10 shadow-2xl">
+        
+        <!-- Depoimentos e Avaliações 5 Estrelas -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-slate-300 w-full lg:w-auto">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-400 mb-1">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="font-bold text-white">95% de Economia Real</p>
+            <p class="text-slate-400 text-[11px]">Redução comprovada já na 1ª fatura</p>
+          </div>
+
+          <div>
+            <div class="flex items-center gap-1 text-yellow-400 mb-1">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="font-bold text-white">100% Homologado Cemig</p>
+            <p class="text-slate-400 text-[11px]">Sem burocracia ou preocupação</p>
+          </div>
+
+          <div>
+            <div class="flex items-center gap-1 text-yellow-400 mb-1">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="font-bold text-white">25 Anos de Garantia</p>
+            <p class="text-slate-400 text-[11px]">Equipamentos de alta performance</p>
+          </div>
+        </div>
+
+        <!-- Logos de Parceiros e Equipamentos -->
+        <div class="flex items-center gap-6 sm:gap-8 pt-4 lg:pt-0 border-t lg:border-t-0 border-white/10 w-full lg:w-auto justify-center lg:justify-end text-xs font-bold text-slate-300 tracking-wider">
+          <span class="flex items-center gap-1.5 text-white">
+            <i class="fa-solid fa-shield-halved text-yellow-400"></i> INTELBRAS SOLAR
+          </span>
+          <span class="flex items-center gap-1.5 text-white">
+            <i class="fa-solid fa-bolt text-yellow-400"></i> HOMOLOGAÇÃO CEMIG
+          </span>
+          <span class="flex items-center gap-1.5 text-white">
+            <i class="fa-solid fa-award text-yellow-400"></i> WEG &amp; LONGI
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================================
+       3. SEÇÃO DESTAQUE DE ENGENHARIA (INSPIRADA NA SEÇÃO 2 DA REFERÊNCIA 2)
+       ========================================================================= -->
+  <section class="py-24 bg-[#0a0e17] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Lado Esquerdo: Card com Imagem e Tag de Economia -->
+        <div class="lg:col-span-6 relative fade-on-scroll">
+          <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl group">
+            <img src="assets/images/projeto_encosta.jpg" 
+                 alt="Geração Solar em Encosta" 
+                 class="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+            
+            <!-- Badge 95% Savings estilo Referência 2 -->
+            <div class="absolute bottom-6 left-6 bg-emerald-500 text-slate-950 font-black px-5 py-2.5 rounded-full text-sm shadow-xl flex items-center gap-2">
+              <i class="fa-solid fa-arrow-trend-down"></i>
+              <span>Até 95% de Economia</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lado Direito: Copy Institucional -->
+        <div class="lg:col-span-6 space-y-6 fade-on-scroll">
+          <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-yellow-400 block">
+            ENGENHARIA ESPECIALIZADA
+          </span>
+
+          <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+            Capturando o poder dos elementos para o seu patrimônio
+          </h2>
+
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+            A Solar Sete atua em Sete Lagoas e em um raio de até 150km. Cuidamos de 100% da cadeia técnica: vistoria local, dimensionamento de engenharia, aprovação de projeto na Cemig e montagem com equipamentos de alta tecnologia homologados.
+          </p>
+
+          <!-- Marcadores de Diferenciais -->
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+              <p class="text-2xl font-black text-yellow-400 font-heading">+150km</p>
+              <p class="text-xs text-slate-300 mt-1">Raio de atendimento regional</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+              <p class="text-2xl font-black text-yellow-400 font-heading">Zero</p>
+              <p class="text-xs text-slate-300 mt-1">Burocracia com a concessionária</p>
+            </div>
+          </div>
+
+          <!-- Botão Fale com Especialista -->
+          <div class="pt-2">
+            <a href="https://wa.me/5531996728374?text=Ol%C3%A1%2C%20Solar%20Sete!%20Gostaria%20de%20falar%20com%20um%20especialista." 
+               target="_blank" 
+               class="inline-flex items-center gap-3 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-bold px-7 py-3.5 rounded-full transition">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>Fale com Nosso Engenheiro</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       4. SEÇÃO SOLUÇÕES COM FUNDO FOTOGRÁFICO & CARDS GLASS (REFERÊNCIA 2 DO PINTEREST)
+       ========================================================================= -->
+  <section id="solucoes" class="relative py-28 overflow-hidden">
+    
+    <!-- Fundo Panorâmico da Usina Solar com Overlay Escuro -->
+    <div class="absolute inset-0 z-0">
+      <img src="assets/images/v2_bg_panorama.jpg" 
+           alt="Parque Solar Fotovoltaico Panorâmico" 
+           class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-[#070a10]/85 backdrop-blur-[2px]"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#070a10] via-transparent to-[#070a10]"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Cabeçalho -->
+      <div class="text-center max-w-3xl mx-auto mb-16 fade-on-scroll">
+        <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-yellow-400 block mb-2">
+          SOLUÇÕES SOB MEDIDA
+        </span>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          Energia Solar para Cada Perfil
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg mt-4">
+          Conheça as soluções completas que projetamos e executamos em Sete Lagoas e região:
+        </p>
+      </div>
+
+      <!-- Grid 4 Cards Glassmorphism estilo Referência 2 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Card 1: Residencial (Card com Destaque Solar) -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 border-yellow-400/50 shadow-2xl fade-on-scroll group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-yellow-400/20 text-yellow-400 flex items-center justify-center text-xl">
+              <i class="fa-solid fa-house-chimney-window"></i>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-white group-hover:text-yellow-400 transition-colors">
+              Projetos Residenciais
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Economia imediata na conta da sua família com instalação rápida, sem ruído e proteção vitalícia contra aumentos de tarifa.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="#simulacao" class="text-xs font-bold text-yellow-400 hover:text-white flex items-center gap-2 transition">
+              <span>Simular para Casa</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Comércio & Serviços -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 fade-on-scroll group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-white/10 text-white flex items-center justify-center text-xl">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-white group-hover:text-yellow-400 transition-colors">
+              Comércio &amp; Serviços
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Reduza custos fixos da sua empresa, padaria, academia ou clínica e transforme a despesa recorrente em lucro líquido.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="#simulacao" class="text-xs font-bold text-yellow-400 hover:text-white flex items-center gap-2 transition">
+              <span>Simular para Empresa</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Indústrias & Galpões -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 fade-on-scroll group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-white/10 text-white flex items-center justify-center text-xl">
+              <i class="fa-solid fa-industry"></i>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-white group-hover:text-yellow-400 transition-colors">
+              Indústrias &amp; Galpões
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Projetos de alta tensão com estudo de carga sob medida, máxima eficiência energética e retorno financeiro acelerado.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="#simulacao" class="text-xs font-bold text-yellow-400 hover:text-white flex items-center gap-2 transition">
+              <span>Simular para Indústria</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: Agronegócio & Usinas -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 fade-on-scroll group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-white/10 text-white flex items-center justify-center text-xl">
+              <i class="fa-solid fa-tractor"></i>
+            </div>
+            <h3 class="font-heading text-xl font-bold text-white group-hover:text-yellow-400 transition-colors">
+              Propriedades Rurais
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Derrube custos para produtores rurais, bombeamento solar de água para lavoura ou geração compartilhada.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="#simulacao" class="text-xs font-bold text-yellow-400 hover:text-white flex items-center gap-2 transition">
+              <span>Simular para o Campo</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       5. SEÇÃO PROCESSO TRANSPARENTE (ESTILO SEÇÃO 4 DA REFERÊNCIA 2 - SUNIFY)
+       ========================================================================= -->
+  <section id="processo" class="py-24 bg-[#0a0e17] border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Cabeçalho -->
+      <div class="text-center max-w-3xl mx-auto mb-16 fade-on-scroll">
+        <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-yellow-400 block mb-2">
+          TRANSPARÊNCIA TOTAL
+        </span>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          Como Funciona Nosso Processo
+        </h2>
+        <p class="text-slate-400 text-base mt-3">
+          Da primeira análise até a sua conta de luz zerar: cuidamos de absolutamente tudo.
+        </p>
+      </div>
+
+      <!-- 4 Colunas Verticais com Fotos estilo Referência 2 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Etapa 01 -->
+        <div class="rounded-2xl overflow-hidden bg-[#111726] border border-white/10 flex flex-col group fade-on-scroll">
+          <div class="h-48 overflow-hidden relative">
+            <img src="assets/images/solucao_residencial.jpg" alt="Vistoria e Estudo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-yellow-400 text-slate-950 text-xs font-black px-3 py-1 rounded-full uppercase">
+              Etapa 01
+            </span>
+          </div>
+          <div class="p-6 space-y-2 flex-1">
+            <h3 class="font-heading font-bold text-lg text-white">Estudo de Viabilidade</h3>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              Analisamos seu histórico de consumo e espaço de telhado/terreno para dimensionar o sistema exato sem custos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Etapa 02 -->
+        <div class="rounded-2xl overflow-hidden bg-[#111726] border border-white/10 flex flex-col group fade-on-scroll">
+          <div class="h-48 overflow-hidden relative">
+            <img src="assets/images/hero_card.jpg" alt="Projeto e Homologação Cemig" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-yellow-400 text-slate-950 text-xs font-black px-3 py-1 rounded-full uppercase">
+              Etapa 02
+            </span>
+          </div>
+          <div class="p-6 space-y-2 flex-1">
+            <h3 class="font-heading font-bold text-lg text-white">Homologação Cemig</h3>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              Nosso engenheiro cuida de toda a documentação técnica, emissão de ART e aprovação completa na Cemig sem burocracia.
+            </p>
+          </div>
+        </div>
+
+        <!-- Etapa 03 -->
+        <div class="rounded-2xl overflow-hidden bg-[#111726] border border-white/10 flex flex-col group fade-on-scroll">
+          <div class="h-48 overflow-hidden relative">
+            <img src="assets/images/projeto_telhado.jpg" alt="Instalação Especializada" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-yellow-400 text-slate-950 text-xs font-black px-3 py-1 rounded-full uppercase">
+              Etapa 03
+            </span>
+          </div>
+          <div class="p-6 space-y-2 flex-1">
+            <h3 class="font-heading font-bold text-lg text-white">Instalação Ágil</h3>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              Montagem técnica com equipe própria certificada, fixações seguras e integração completa do inversor.
+            </p>
+          </div>
+        </div>
+
+        <!-- Etapa 04 -->
+        <div class="rounded-2xl overflow-hidden bg-[#111726] border border-white/10 flex flex-col group fade-on-scroll">
+          <div class="h-48 overflow-hidden relative">
+            <img src="assets/images/autoridade.jpg" alt="Economia Ativa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-emerald-400 text-slate-950 text-xs font-black px-3 py-1 rounded-full uppercase">
+              Etapa 04
+            </span>
+          </div>
+          <div class="p-6 space-y-2 flex-1">
+            <h3 class="font-heading font-bold text-lg text-white">Economia Ativa</h3>
+            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              Liberação da rede pela Cemig, monitoramento de geração via aplicativo e redução drástica visível na próxima fatura.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       6. SEÇÃO PROJETOS EXECUTADOS NA REGIÃO (GALERIA 4K)
+       ========================================================================= -->
+  <section id="obras" class="py-24 bg-[#070a10] border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Cabeçalho -->
+      <div class="text-center max-w-3xl mx-auto mb-16 fade-on-scroll">
+        <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-yellow-400 block mb-2">
+          EXPERIÊNCIA EM CAMPO
+        </span>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          Projetos Executados na Região
+        </h2>
+      </div>
+
+      <!-- Grid 2x2 com Fotos 4K e Badges Nativos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Projeto 1: Usina Fotovoltaica Rural -->
+        <div class="project-card relative rounded-2xl overflow-hidden shadow-2xl bg-slate-900 group border border-white/10 fade-on-scroll">
+          <div class="overflow-hidden aspect-video">
+            <img src="assets/images/projeto_rural.jpg" 
+                 alt="Usina Fotovoltaica Rural em Sete Lagoas" 
+                 class="w-full h-full object-cover transform duration-500 group-hover:scale-105 block">
+          </div>
+          <div class="absolute bottom-4 left-4 right-4 bg-slate-950/85 backdrop-blur-md border border-white/10 px-4 py-3 rounded-xl flex items-center justify-between text-xs sm:text-sm font-medium shadow-lg">
+            <span class="text-white font-semibold">Usina Fotovoltaica Rural</span>
+            <span class="text-yellow-400 font-bold">Sete Lagoas – MG</span>
+          </div>
+        </div>
+
+        <!-- Projeto 2: Geração de Solo em Encosta -->
+        <div class="project-card relative rounded-2xl overflow-hidden shadow-2xl bg-slate-900 group border border-white/10 fade-on-scroll">
+          <div class="overflow-hidden aspect-video">
+            <img src="assets/images/projeto_encosta.jpg" 
+                 alt="Geração de Solo em Encosta na Região Metropolitana" 
+                 class="w-full h-full object-cover transform duration-500 group-hover:scale-105 block">
+          </div>
+          <div class="absolute bottom-4 left-4 right-4 bg-slate-950/85 backdrop-blur-md border border-white/10 px-4 py-3 rounded-xl flex items-center justify-between text-xs sm:text-sm font-medium shadow-lg">
+            <span class="text-white font-semibold">Geração de Solo em Encosta</span>
+            <span class="text-yellow-400 font-bold">Região Metropolitana</span>
+          </div>
+        </div>
+
+        <!-- Projeto 3: Sistema Fotovoltaico no Telhado -->
+        <div class="project-card relative rounded-2xl overflow-hidden shadow-2xl bg-slate-900 group border border-white/10 fade-on-scroll">
+          <div class="overflow-hidden aspect-video">
+            <img src="assets/images/projeto_telhado.jpg" 
+                 alt="Sistema Fotovoltaico no Telhado em Sete Lagoas" 
+                 class="w-full h-full object-cover transform duration-500 group-hover:scale-105 block">
+          </div>
+          <div class="absolute bottom-4 left-4 right-4 bg-slate-950/85 backdrop-blur-md border border-white/10 px-4 py-3 rounded-xl flex items-center justify-between text-xs sm:text-sm font-medium shadow-lg">
+            <span class="text-white font-semibold">Sistema Fotovoltaico no Telhado</span>
+            <span class="text-yellow-400 font-bold">Sete Lagoas – MG</span>
+          </div>
+        </div>
+
+        <!-- Projeto 4: Usina Fotovoltaica Dedicada -->
+        <div class="project-card relative rounded-2xl overflow-hidden shadow-2xl bg-slate-900 group border border-white/10 fade-on-scroll">
+          <div class="overflow-hidden aspect-video">
+            <img src="assets/images/projeto_dedicada.jpg" 
+                 alt="Usina Fotovoltaica Dedicada em Sete Lagoas" 
+                 class="w-full h-full object-cover transform duration-500 group-hover:scale-105 block">
+          </div>
+          <div class="absolute bottom-4 left-4 right-4 bg-slate-950/85 backdrop-blur-md border border-white/10 px-4 py-3 rounded-xl flex items-center justify-between text-xs sm:text-sm font-medium shadow-lg">
+            <span class="text-white font-semibold">Usina Fotovoltaica Dedicada</span>
+            <span class="text-yellow-400 font-bold">Sete Lagoas – MG</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       7. SEÇÃO FAQ COM FOTO DE FUNDO (ESTILO SEÇÃO 5 DA REFERÊNCIA 2 - SUNIFY)
+       ========================================================================= -->
+  <section id="faq" class="relative py-28 overflow-hidden">
+    
+    <!-- Imagem de Fundo com Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img src="assets/images/autoridade.jpg" alt="Instalação Solar" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-[#070a10]/90 backdrop-blur-sm"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12 fade-on-scroll">
+        <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-yellow-400 block mb-2">
+          TIRE SUAS DÚVIDAS
+        </span>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          Perguntas Frequentes
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base mt-3">
+          Tudo o que você precisa saber antes de instalar energia solar em Sete Lagoas.
+        </p>
+      </div>
+
+      <!-- Acordeões Interativos com Glassmorphism -->
+      <div class="space-y-4">
+        
+        <details class="glass-card rounded-2xl p-6 group cursor-pointer transition open:bg-white/10" open>
+          <summary class="font-heading font-bold text-lg text-white flex items-center justify-between list-none">
+            <span>Como funciona a homologação junto à concessionária Cemig?</span>
+            <i class="fa-solid fa-chevron-down text-yellow-400 text-sm group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-slate-300 text-sm leading-relaxed mt-4 pt-4 border-t border-white/10">
+            A Solar Sete cuida de absolutamente todas as etapas burocráticas: elaboração do projeto técnico por engenheiro credenciado, emissão de ART (Anotação de Responsabilidade Técnica), solicitação de parecer de acesso e troca do relógio para o medidor bidirecional pela Cemig. Você não precisa se preocupar com nada.
+          </p>
+        </details>
+
+        <details class="glass-card rounded-2xl p-6 group cursor-pointer transition open:bg-white/10">
+          <summary class="font-heading font-bold text-lg text-white flex items-center justify-between list-none">
+            <span>Qual é a garantia dos módulos e do sistema?</span>
+            <i class="fa-solid fa-chevron-down text-yellow-400 text-sm group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-slate-300 text-sm leading-relaxed mt-4 pt-4 border-t border-white/10">
+            Os módulos solares contam com 25 anos de garantia de desempenho e geração linear. Os inversores e estruturas contam com garantia integral de fábrica e nossa engenharia presta suporte técnico contínuo.
+          </p>
+        </details>
+
+        <details class="glass-card rounded-2xl p-6 group cursor-pointer transition open:bg-white/10">
+          <summary class="font-heading font-bold text-lg text-white flex items-center justify-between list-none">
+            <span>O sistema gera energia em dias nublados ou com chuva?</span>
+            <i class="fa-solid fa-chevron-down text-yellow-400 text-sm group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-slate-300 text-sm leading-relaxed mt-4 pt-4 border-t border-white/10">
+            Sim! Os módulos fotovoltaicos funcionam através da irradiação solar e da luminosidade, continuando a gerar energia mesmo sob chuva ou tempo nublado. Além disso, o excedente gerado em dias ensolarados é injetado na rede da Cemig e acumula créditos para você abater a qualquer momento.
+          </p>
+        </details>
+
+        <details class="glass-card rounded-2xl p-6 group cursor-pointer transition open:bg-white/10">
+          <summary class="font-heading font-bold text-lg text-white flex items-center justify-between list-none">
+            <span>Quais cidades a Solar Sete atende?</span>
+            <i class="fa-solid fa-chevron-down text-yellow-400 text-sm group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-slate-300 text-sm leading-relaxed mt-4 pt-4 border-t border-white/10">
+            Atendemos Sete Lagoas e um raio de até 150 km, cobrindo Prudente de Morais, Inhaúma, Matozinhos, Paraopeba, Caetanópolis, Pedro Leopoldo, Lagoa Santa, Vespasiano e toda a região metropolitana e rural adjacente.
+          </p>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       8. SEÇÃO CONTATO & SIMULADOR DE ECONOMIA
+       ========================================================================= -->
+  <section id="simulacao" class="py-24 bg-[#070a10] border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        
+        <!-- Coluna Esquerda: Informações Oficiais de Contato (Col 5) -->
+        <div class="lg:col-span-5 glass-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between fade-on-scroll">
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-heading text-2xl sm:text-3xl font-bold text-white mb-2">
+                Solar Sete Energia Solar
+              </h3>
+              <p class="text-yellow-400 text-sm font-semibold">
+                Atendimento Técnico &amp; Comercial Especializado
+              </p>
+            </div>
+
+            <div class="space-y-5 pt-4 text-sm sm:text-base text-slate-300">
+              <!-- Endereço Físico -->
+              <div class="flex items-start gap-3.5">
+                <i class="fa-solid fa-location-dot text-yellow-400 text-lg mt-1 shrink-0"></i>
+                <div>
+                  <p class="text-white font-medium">Rua Rio Jequitaí, 662</p>
+                  <p class="text-slate-400 text-sm">Bairro Progresso, Sete Lagoas – MG, 35701-126</p>
+                </div>
+              </div>
+
+              <!-- WhatsApp e Telefone -->
+              <div class="flex items-start gap-3.5">
+                <i class="fa-solid fa-phone text-yellow-400 text-lg mt-1 shrink-0"></i>
+                <div>
+                  <p class="text-white font-medium">(31) 99672-8374</p>
+                  <p class="text-slate-400 text-sm">WhatsApp Oficial para Atendimento</p>
+                </div>
+              </div>
+
+              <!-- Horário de Atendimento -->
+              <div class="flex items-start gap-3.5">
+                <i class="fa-regular fa-clock text-yellow-400 text-lg mt-1 shrink-0"></i>
+                <div>
+                  <p class="text-white font-medium">Segunda a Sexta: 08:00 às 18:00</p>
+                  <p class="text-slate-400 text-sm">Sábado: 08:00 às 12:00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Selos de Credenciamento -->
+          <div class="pt-8 mt-8 border-t border-white/10 flex flex-wrap items-center gap-3">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-yellow-400/10 text-yellow-400 text-xs font-semibold">
+              <i class="fa-solid fa-certificate"></i> Representante Intelbras Solar
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-400/10 text-emerald-400 text-xs font-semibold">
+              <i class="fa-solid fa-bolt"></i> Homologação Cemig
+            </span>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Simulador de Economia Interativo (Col 7) -->
+        <div class="lg:col-span-7 glass-card rounded-3xl p-8 sm:p-10 shadow-2xl fade-on-scroll border-yellow-400/30">
+          <div class="mb-6">
+            <h3 class="font-heading text-2xl sm:text-3xl font-bold text-white mb-2">
+              Simule sua Economia
+            </h3>
+            <p class="text-slate-400 text-sm sm:text-base">
+              Preencha para receber um cálculo preliminar sem compromisso:
+            </p>
+          </div>
+
+          <form id="formSimulacao" class="space-y-5" onsubmit="event.preventDefault();">
+            <div>
+              <label for="inputNome" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                Seu Nome
+              </label>
+              <input type="text" id="inputNome" 
+                     placeholder="Ex: Felipe ou Nome da Empresa" 
+                     class="w-full bg-[#070a10] border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition">
+            </div>
+
+            <div>
+              <label for="inputWhatsapp" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                Seu WhatsApp
+              </label>
+              <input type="tel" id="inputWhatsapp" 
+                     placeholder="(31) 99999-9999" 
+                     maxlength="15"
+                     class="w-full bg-[#070a10] border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition">
+            </div>
+
+            <div>
+              <label for="inputFatura" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                Valor Médio da Fatura Mensal (R$)
+              </label>
+              <input type="text" id="inputFatura" 
+                     placeholder="Ex: R$ 650,00" 
+                     class="w-full bg-[#070a10] border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition">
+            </div>
+
+            <!-- Preview Dinâmico de Economia Calculada -->
+            <div id="previewEconomia" class="hidden bg-[#0d131f] border border-yellow-400/50 rounded-xl p-4 space-y-2 text-sm">
+              <div class="flex items-center justify-between text-slate-300">
+                <span>Economia Estimada por Mês:</span>
+                <span id="economiaMes" class="font-bold text-yellow-400 text-base">R$ 0,00</span>
+              </div>
+              <div class="flex items-center justify-between text-slate-300">
+                <span>Economia Estimada em 1 Ano:</span>
+                <span id="economiaAno" class="font-bold text-emerald-400">R$ 0,00</span>
+              </div>
+              <div class="flex items-center justify-between text-slate-300 border-t border-slate-800 pt-2">
+                <span>Economia Projetada em 25 Anos:</span>
+                <span id="economia25Anos" class="font-extrabold text-white text-base">R$ 0,00</span>
+              </div>
+            </div>
+
+            <button id="btnCalcular" type="button" 
+                    class="w-full bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black py-4 px-6 rounded-xl text-base shadow-[0_10px_30px_rgba(250,204,21,0.35)] flex items-center justify-center gap-2 group cursor-pointer transition">
+              <i class="fa-solid fa-bolt text-slate-950 group-hover:scale-110 transition-transform"></i>
+              <span>Calcular Minha Economia no WhatsApp</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       9. RODAPÉ (FOOTER)
+       ========================================================================= -->
+  <footer class="py-8 bg-[#04060a] border-t border-white/10 text-xs sm:text-sm text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <p>
+        &copy; 2026 <strong class="text-white">Solar Sete Materiais &amp; Energia Solar</strong>. Sete Lagoas – MG.
+      </p>
+      <div class="flex items-center gap-4 text-xs">
+        <a href="index.html" class="text-yellow-400 hover:underline">Ver Versão 1 (Original)</a>
+        <span class="text-slate-600">•</span>
+        <span class="text-slate-500">Desenvolvido com exclusividade</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- =========================================================================
+       10. BOTÃO FLUTUANTE DO WHATSAPP
+       ========================================================================= -->
+  <a href="https://wa.me/5531996728374?text=Ol%C3%A1%2C%20Solar%20Sete!%20Gostaria%20de%20um%20atendimento%20para%20energia%20solar." 
+     target="_blank" 
+     aria-label="Falar no WhatsApp"
+     class="fixed bottom-6 right-6 z-50 bg-[#10b981] hover:bg-[#059669] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl pulse-whatsapp transition-transform duration-200 hover:scale-110">
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
