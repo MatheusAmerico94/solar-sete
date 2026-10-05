@@ -60,19 +60,9 @@
 <body class="bg-[#070a10] text-slate-100 antialiased selection:bg-yellow-400 selection:text-slate-950 font-sans">
 
   <!-- =========================================================================
-       BARRA DE ALTERNÂNCIA DE VERSÕES (TESTE A/B)
+       1. HEADER / NAVBAR (ESTÁTICO NO MOBILE, FIXO NO DESKTOP)
        ========================================================================= -->
-  <div class="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 text-slate-950 text-xs font-bold py-1.5 px-4 text-center flex items-center justify-center gap-3">
-    <span>💡 Você está visualizando a <strong>Versão 2 (Estilo Pinterest / Editorial)</strong></span>
-    <a href="index.html" class="underline hover:text-white transition flex items-center gap-1">
-      <span>Voltar para a Versão 1</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
-    </a>
-  </div>
-
-  <!-- =========================================================================
-       1. HEADER / NAVBAR FIXA (ESTILO MINIMALISTA MERSOL)
-       ========================================================================= -->
-  <header id="mainHeader" class="fixed top-7 left-0 right-0 z-50 transition-all duration-300 bg-[#070a10]/70 backdrop-blur-xl border-b border-white/10">
+  <header id="mainHeader" class="absolute md:fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#070a10]/95 md:bg-[#070a10]/70 md:backdrop-blur-xl border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Logo Solar Sete (com ponto solar amarelo estilo Mersol) -->
@@ -800,11 +790,9 @@
       <p>
         &copy; 2026 <strong class="text-white">Solar Sete Materiais &amp; Energia Solar</strong>. Sete Lagoas – MG.
       </p>
-      <div class="flex items-center gap-4 text-xs">
-        <a href="index.html" class="text-yellow-400 hover:underline">Ver Versão 1 (Original)</a>
-        <span class="text-slate-600">•</span>
-        <span class="text-slate-500">Desenvolvido com exclusividade</span>
-      </div>
+      <p class="text-slate-500 text-xs">
+        Projeto e landing page desenvolvida com exclusividade.
+      </p>
     </div>
   </footer>
 

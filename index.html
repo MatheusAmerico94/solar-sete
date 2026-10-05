@@ -41,19 +41,12 @@
   
   <!-- CSS Customizado -->
   <link rel="stylesheet" href="css/style.css">
-</head>
-  <!-- BARRA DE ALTERNÂNCIA DE VERSÕES -->
-  <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-slate-950 text-xs font-bold py-1.5 px-4 text-center flex items-center justify-center gap-3">
-    <span>💡 Você está visualizando a <strong>Versão 1 (Layout Split Mockup)</strong></span>
-    <a href="versao-2.html" class="underline hover:text-white transition flex items-center gap-1">
-      <span>Conhecer a Versão 2 (Estilo Pinterest)</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
-    </a>
-  </div>
+<body class="bg-[#0b0f17] text-slate-100 antialiased selection:bg-amber-400 selection:text-slate-900">
 
   <!-- =========================================================================
-       1. HEADER / NAVBAR FIXA
+       1. HEADER / NAVBAR (ESTÁTICO NO MOBILE, FIXO NO DESKTOP)
        ========================================================================= -->
-  <header id="mainHeader" class="fixed top-7 left-0 right-0 z-50 transition-all duration-300 bg-[#0b0f17]/90 backdrop-blur-md border-b border-white/5">
+  <header id="mainHeader" class="absolute md:fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0b0f17]/95 md:bg-[#0b0f17]/90 md:backdrop-blur-md border-b border-white/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Logo Oficial Solar Sete -->

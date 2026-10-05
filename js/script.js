@@ -21,15 +21,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. NAVBAR SCROLL EFFECT
+  // 2. NAVBAR SCROLL EFFECT (Apenas no Desktop onde é fixo)
   const mainHeader = document.getElementById('mainHeader');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      mainHeader.classList.add('bg-[#0b0f17]/95', 'shadow-lg', 'border-b', 'border-slate-800/80');
-      mainHeader.classList.remove('bg-[#0b0f17]/80');
-    } else {
-      mainHeader.classList.remove('shadow-lg', 'border-slate-800/80');
-      mainHeader.classList.add('bg-[#0b0f17]/80');
+    if (window.innerWidth >= 768 && mainHeader) {
+      if (window.scrollY > 40) {
+        mainHeader.classList.add('bg-[#0b0f17]/95', 'shadow-lg', 'border-b', 'border-slate-800/80');
+        mainHeader.classList.remove('bg-[#0b0f17]/80');
+      } else {
+        mainHeader.classList.remove('shadow-lg', 'border-slate-800/80');
+        mainHeader.classList.add('bg-[#0b0f17]/80');
+      }
     }
   });
 
